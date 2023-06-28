@@ -20,7 +20,6 @@ module.exports = {
       Buffer: ['buffer', 'Buffer'],
     }),
   ],
-
   resolve: {
     fallback: {
       assert: require.resolve('assert'),
@@ -31,6 +30,7 @@ module.exports = {
       domain: require.resolve('domain-browser'),
       events: require.resolve('events'),
       http: require.resolve('stream-http'),
+      stream: require.resolve("stream-browserify"),
       https: require.resolve('https-browserify'),
       os: require.resolve('os-browserify/browser'),
       path: require.resolve('path-browserify'),
