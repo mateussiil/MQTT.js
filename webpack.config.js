@@ -1,11 +1,8 @@
 const webpack = require('webpack')
 
 module.exports = {
-
   entry: "./lib/connect/index.js",
-
-  //mode: "development",
-
+  mode: "production",
   output: {
     library: {
       type: "commonjs2"

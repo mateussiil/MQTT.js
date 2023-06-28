@@ -27,7 +27,7 @@
     "pretest": "standard | snazzy",
     "typescript-compile-test": "tsc -p test/typescript/tsconfig.json",
     "typescript-compile-execute": "node test/typescript/broker-connect-subscribe-and-publish.js",
-    "browser-build": "rimraf dist/ && mkdirp dist/ && browserify mqtt.js --standalone mqtt > dist/mqtt.js && terser dist/mqtt.js --compress --mangle --output dist/mqtt.min.js",
+    "browser-build": "rimraf dist/ && mkdirp dist/ && npx webpack && browserify mqtt.js --standalone mqtt > dist/mqtt.js && terser dist/mqtt.js --compress --mangle --output dist/mqtt.min.js",
     "prepare": "npm run browser-build",
     "unit-test:node": "node_modules/.bin/nyc --reporter=lcov --reporter=text ./node_modules/mocha/bin/_mocha --exit",
     "unit-test:browser": "airtap --server test/browser/server.js test/browser/test.js",
@@ -86,7 +86,7 @@
     "node": ">=16.0.0"
   },
   "browser": {
-    "./mqtt.js": "./dist/mqtt.browser.js",
+    "./mqtt.js": "./lib/connect/index.js",
     "fs": false,
     "tls": false,
     "net": false
